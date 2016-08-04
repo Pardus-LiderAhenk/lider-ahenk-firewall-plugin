@@ -30,7 +30,6 @@
 
     <feature name="lider-firewall-bundles" version="${project.version}">
 		<bundle>mvn:tr.org.liderahenk/lider-firewall/${project.version}</bundle>
-		<bundle>mvn:tr.org.liderahenk/lider-firewall-db/${project.version}</bundle>
 		<configfile finalname="/etc/tr.org.liderahenk.firewall.cfg">mvn:tr.org.liderahenk/lider-firewall/${project.version}/cfg</configfile>
     </feature>
 

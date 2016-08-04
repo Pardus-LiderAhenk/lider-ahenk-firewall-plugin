@@ -10,6 +10,13 @@
 	<cm:property-placeholder persistent-id="tr.org.liderahenk.firewall"
 		update-strategy="reload">
 	</cm:property-placeholder>
+	
+	<!-- ICommand implementation is used to process a task execution -->
+	<service ref="FirewallCommand" interface="tr.org.liderahenk.lider.core.api.plugin.ICommand" />
+	<bean id="FirewallCommand" class="tr.org.liderahenk.firewall.commands.FirewallCommand">
+		<property name="resultFactory" ref="resultFactory" />
+		<property name="pluginInfo" ref="pluginInfoImpl" />
+	</bean>
 
 	<!-- IPluginInfo implementation is used to register plugin -->
 	<service ref="pluginInfoImpl"
@@ -28,16 +35,5 @@
 		<property name="xbased" value="${plugin.x.based}" />
 	</bean>
 
-	<!-- ICommand implementation is used to process a task execution -->
-	<service ref="FirewallCommand" interface="tr.org.liderahenk.lider.core.api.plugin.ICommand" />
-	<bean id="FirewallCommand" class="tr.org.liderahenk.firewall.commands.FirewallCommand">
-		<property name="resultFactory" ref="resultFactory" />
-		<property name="pluginInfo" ref="pluginInfoImpl" />
-		<property name="logService" ref="logService" />
-		<property name="pluginDbService" ref="pluginDbService" />
-	</bean>
-
-	<reference id="pluginDbService" interface="tr.org.liderahenk.lider.core.api.persistence.IPluginDbService" />
-	<reference id="logService" interface="tr.org.liderahenk.lider.core.api.log.IOperationLogService" />
 	<reference id="resultFactory" interface="tr.org.liderahenk.lider.core.api.service.ICommandResultFactory" />
 </blueprint>
