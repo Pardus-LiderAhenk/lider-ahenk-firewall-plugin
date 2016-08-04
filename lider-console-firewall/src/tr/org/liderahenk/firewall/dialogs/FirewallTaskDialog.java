@@ -112,7 +112,7 @@ public class FirewallTaskDialog extends DefaultTaskDialog {
 		
 		txtRule = new Text(parent,  SWT.MULTI | SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL | SWT.WRAP);
 		GridData gridData = new GridData(GridData.FILL_BOTH);
-		gridData.heightHint = 150;
+		gridData.heightHint = 200;
 		txtRule.setLayoutData(gridData);
 		txtRule.setEnabled(false);
 		

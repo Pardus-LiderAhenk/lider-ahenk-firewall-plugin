@@ -40,7 +40,7 @@ public class FirewallProfileDialog implements IProfileDialog {
 		txtRule = new Text(composite, SWT.MULTI | SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL | SWT.WRAP);
 		GridData gridData = new GridData();
 		gridData.widthHint = 400;
-		gridData.heightHint = 100;
+		gridData.heightHint = 200;
 		txtRule.setLayoutData(gridData);
 		txtRule.setToolTipText(Messages.getString("SAMPLE_RULE"));
 		
