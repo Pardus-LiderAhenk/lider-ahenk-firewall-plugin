@@ -20,14 +20,15 @@ class Init(AbstractPlugin):
         pass
 
         try:
-            self.logger.debug('[FIREWALL - init] Adding initial rules temp file to iptables-restore as parameter...')
-            self.execute('/sbin/iptables-restore < {}'.format(self.initial_rules_file_path))
+            if self.is_exist(self.initial_rules_file_path):
+                self.logger.debug('[FIREWALL - init] Adding initial rules temp file to iptables-restore as parameter...')
+                self.execute('/sbin/iptables-restore < {}'.format(self.initial_rules_file_path))
 
-            self.logger.debug('[FIREWALL - init] Save the rules...')
-            self.execute('service netfilter-persistent save')
+                self.logger.debug('[FIREWALL - init] Save the rules...')
+                self.execute('service netfilter-persistent save')
 
-            self.logger.debug('[FIREWALL - init] Restart the service...')
-            self.execute('service netfilter-persistent restart')
+                self.logger.debug('[FIREWALL - init] Restart the service...')
+                self.execute('service netfilter-persistent restart')
 
         except Exception as e:
             self.logger.error('[FIREWALL - init] A problem occured while handling Firewall init.py: {0}'.format(str(e)))

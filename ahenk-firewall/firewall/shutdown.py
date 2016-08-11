@@ -16,14 +16,15 @@ class Shutdown(AbstractPlugin):
 
     def handle_shutdown_mode(self):
         try:
-            self.logger.debug('[FIREWALL - shutdown] Adding initial rules temp file to iptables-restore as parameter...')
-            self.execute('/sbin/iptables-restore < {}'.format(self.initial_rules_file_path))
+            if self.is_exist(self.initial_rules_file_path):
+                self.logger.debug('[FIREWALL - shutdown] Adding initial rules temp file to iptables-restore as parameter...')
+                self.execute('/sbin/iptables-restore < {}'.format(self.initial_rules_file_path))
 
-            self.logger.debug('[FIREWALL - shutdown] Save the rules...')
-            self.execute('service netfilter-persistent save')
+                self.logger.debug('[FIREWALL - shutdown] Save the rules...')
+                self.execute('service netfilter-persistent save')
 
-            self.logger.debug('[FIREWALL - shutdown] Restart the service...')
-            self.execute('service netfilter-persistent restart')
+                self.logger.debug('[FIREWALL - shutdown] Restart the service...')
+                self.execute('service netfilter-persistent restart')
 
         except Exception as e:
             self.logger.error('[FIREWALL - shutdown] A problem occured while handling Firewall shutdown.py: {0}'.format(str(e)))
