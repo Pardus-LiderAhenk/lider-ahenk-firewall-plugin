@@ -26,8 +26,9 @@ class FirewallRules(AbstractPlugin):
 
     def handle_policy(self):
         try:
-            self.logger.debug('[FIREWALL] Export initial rules to a temporary file...')
-            self.execute('/sbin/iptables-save > {}'.format(self.initial_rules_file_path))
+            if not self.is_exist(self.initial_rules_file_path):
+                self.logger.debug('[FIREWALL] Export initial rules to a temporary file...')
+                self.execute('/sbin/iptables-save > {}'.format(self.initial_rules_file_path))
 
             self.logger.debug('[FIREWALL] Writing rules to temporary file...')
             self.write_file(self.file_path, '{0}{1}'.format(self.rules, '\n'))
