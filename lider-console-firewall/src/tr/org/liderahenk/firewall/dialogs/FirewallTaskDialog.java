@@ -59,7 +59,7 @@ public class FirewallTaskDialog extends DefaultTaskDialog {
 
 		try {
 			TaskRequest task = new TaskRequest(new ArrayList<String>(getDnSet()), DNType.AHENK, getPluginName(),
-					getPluginVersion(), getCommandId(), null, null, new Date());
+					getPluginVersion(), getCommandId(), null, null, null, new Date());
 			TaskRestUtils.execute(task);
 		} catch (Exception e1) {
 			logger.error(e1.getMessage(), e1);
