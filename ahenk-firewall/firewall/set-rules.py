@@ -4,7 +4,6 @@
 
 import json
 
-from base.model.enum.ContentType import ContentType
 from base.plugin.abstract_plugin import AbstractPlugin
 
 
@@ -35,7 +34,7 @@ class FirewallRules(AbstractPlugin):
             self.context.create_response(code=self.message_code.TASK_PROCESSED.value,
                                          message='Güvenlik Duvarı kuralları başarıyla okundu.',
                                          data=json.dumps({'firewallRules': firewall_rules}),
-                                         content_type=ContentType.APPLICATION_JSON.value)
+                                         content_type=self.get_content_type().APPLICATION_JSON.value)
 
         except Exception as e:
             self.logger.error('[FIREWALL] A problem occured while handling Firewall task: {0}'.format(str(e)))
