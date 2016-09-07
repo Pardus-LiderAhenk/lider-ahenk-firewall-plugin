@@ -22,53 +22,14 @@
    
    <extension
        point="org.eclipse.ui.handlers">
-
-		<!-- Profile handler -->
        	<handler
             class="tr.org.liderahenk.firewall.handlers.FirewallProfileHandler"
             commandId="tr.org.liderahenk.liderconsole.commands.FirewallProfile">
-           <!-- TODO Uncomment this after updating/fixing LiderSourceProvider -->
-		   <!-- <enabledWhen>
-				<and>
-		          <with
-		                variable="tr.org.liderahenk.liderconsole.core.sourceproviders.main.available">
-		             <equals
-		                   value="true">
-		             </equals>
-		          </with>
-				<with
-	                variable="tr.org.liderahenk.liderconsole.core.sourceproviders.main.isAhenkSelected">
-	             	<equals
-		                   value="true">
-		            </equals>
-	          	</with>
-		       </and>
-		    </enabledWhen> -->        
       	</handler>
-      	
-      	<!-- Task handler -->
        <handler
             class="tr.org.liderahenk.firewall.handlers.FirewallTaskHandler"
             commandId="tr.org.liderahenk.liderconsole.commands.FirewallTask">
-           <!-- TODO Uncomment this after updating/fixing LiderSourceProvider -->
-		   <!-- <enabledWhen>
-				<and>
-		          <with
-		                variable="tr.org.liderahenk.liderconsole.core.sourceproviders.main.available">
-		             <equals
-		                   value="true">
-		             </equals>
-		          </with>
-				<with
-	                variable="tr.org.liderahenk.liderconsole.core.sourceproviders.main.isAhenkSelected">
-	             	<equals
-		                   value="true">
-		            </equals>
-	          	</with>
-		       </and>
-		    </enabledWhen> -->        
       </handler>
-      
   </extension>
   
   <extension
@@ -78,37 +39,10 @@
 		<menuContribution
             locationURI="menu:tr.org.liderahenk.liderconsole.menus.ProfileDefinition?after=additions">
  				<command
-           commandId="tr.org.liderahenk.liderconsole.commands.FirewallProfile"
-           icon="icons/16/firewall.png"
-           id="tr.org.liderahenk.liderconsole.commands.FirewallProfile"
-           tooltip="%command.profile">
-                  <!-- TODO Uncomment this after updating/fixing LiderSourceProvider -->
-				  <!-- <visibleWhen>
-					   <and>
-			                <iterate operator="or">		
-			                	<or>
-							  	<with
-					                variable="tr.org.liderahenk.liderconsole.core.sourceproviders.main.isSearchSelected">
-						             <equals
-						                   value="true">
-						             </equals>
-					          	</with>
-					          	<with
-					                variable="tr.org.liderahenk.liderconsole.core.sourceproviders.main.isEntrySelected">
-						             <equals
-						                   value="true">
-						             </equals>
-					          	</with>
-					        	</or>
-					        </iterate>
-							<with
-				                variable="tr.org.liderahenk.liderconsole.core.sourceproviders.main.isAhenkSelected">
-				             	<equals
-					                   value="true">
-					            </equals>
-				          	</with>
-					    </and>
-					</visibleWhen> -->               
+		           commandId="tr.org.liderahenk.liderconsole.commands.FirewallProfile"
+		           icon="icons/16/firewall.png"
+		           id="tr.org.liderahenk.liderconsole.commands.FirewallProfile"
+		           tooltip="%command.profile">
            		</command>
 		</menuContribution>
       
@@ -117,59 +51,32 @@
       		allPopups="false"
             locationURI="popup:tr.org.liderahenk.liderconsole.menus.ApplyTask?after=additions">
  				<command
-           commandId="tr.org.liderahenk.liderconsole.commands.FirewallTask"
-           icon="icons/16/firewall.png"
-           id="tr.org.liderahenk.liderconsole.commands.FirewallTask"
-           tooltip="%command.task">
-        <visibleWhen>
-           <and>
-              <with
-                    variable="tr.org.liderahenk.liderconsole.core.sourceproviders.main.isSingleEntrySelected">
-                 <equals
-                       value="true">
-                 </equals>
-              </with>
-              <with
-                    variable="tr.org.liderahenk.liderconsole.core.sourceproviders.main.available">
-                 <equals
-                       value="true">
-                 </equals>
-              </with>
-              <with
-                    variable="tr.org.liderahenk.liderconsole.core.sourceproviders.main.isAhenkSelected">
-                 <equals
-                       value="true">
-                 </equals>
-              </with>
-           </and>
-        </visibleWhen>
-                  <!-- TODO Uncomment this after updating/fixing LiderSourceProvider -->
-				  <!-- <visibleWhen>
-					   <and>
-			                <iterate operator="or">		
-			                	<or>
-							  	<with
-					                variable="tr.org.liderahenk.liderconsole.core.sourceproviders.main.isSearchSelected">
-						             <equals
-						                   value="true">
-						             </equals>
-					          	</with>
-					          	<with
-					                variable="tr.org.liderahenk.liderconsole.core.sourceproviders.main.isEntrySelected">
-						             <equals
-						                   value="true">
-						             </equals>
-					          	</with>
-					        	</or>
-					        </iterate>
-							<with
-				                variable="tr.org.liderahenk.liderconsole.core.sourceproviders.main.isAhenkSelected">
-				             	<equals
-					                   value="true">
-					            </equals>
-				          	</with>
-					    </and>
-					</visibleWhen> -->               
+		           commandId="tr.org.liderahenk.liderconsole.commands.FirewallTask"
+		           icon="icons/16/firewall.png"
+		           id="tr.org.liderahenk.liderconsole.commands.FirewallTask"
+		           tooltip="%command.task">
+			        <visibleWhen>
+			           <and>
+			              <with
+			                    variable="tr.org.liderahenk.liderconsole.core.sourceproviders.main.isSingleEntrySelected">
+			                 <equals
+			                       value="true">
+			                 </equals>
+			              </with>
+			              <with
+			                    variable="tr.org.liderahenk.liderconsole.core.sourceproviders.main.available">
+			                 <equals
+			                       value="true">
+			                 </equals>
+			              </with>
+			              <with
+			                    variable="tr.org.liderahenk.liderconsole.core.sourceproviders.main.isAhenkSelected">
+			                 <equals
+			                       value="true">
+			                 </equals>
+			              </with>
+			           </and>
+			        </visibleWhen>
            		</command>
 		</menuContribution>
   </extension>
@@ -178,6 +85,13 @@
 	<extension
   		point="tr.org.liderahenk.liderconsole.core.policymenu">
   		<policyItem label="%command.profile" pluginName="firewall" pluginVersion="1.0.0" profileCommandId="tr.org.liderahenk.liderconsole.commands.FirewallProfile" />
+  	</extension>
+  	
+	<!-- Add extension point contribution for i18n messages -->
+	<extension
+  		point="tr.org.liderahenk.liderconsole.core.i18n">
+  		<task code="SET-RULES" label="%command.task" />
+		<plugin name="firewall" label="%plugin.label" />
   	</extension>
   	
 </plugin>
