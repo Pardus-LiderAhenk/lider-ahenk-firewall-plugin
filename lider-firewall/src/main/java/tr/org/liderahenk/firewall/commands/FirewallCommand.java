@@ -26,7 +26,7 @@ public class FirewallCommand implements ICommand {
 
 	@Override
 	public String getCommandId() {
-		return "SET-RULES";
+		return "GET-RULES";
 	}
 
 	@Override
