@@ -154,7 +154,7 @@ public class FirewallTaskDialog extends DefaultTaskDialog {
 	
 	@Override
 	public String getCommandId() {
-		return "SET-RULES";
+		return "GET-RULES";
 	}
 
 	@Override

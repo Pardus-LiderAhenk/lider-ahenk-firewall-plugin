@@ -43,5 +43,5 @@ class FirewallRules(AbstractPlugin):
 
 
 def handle_task(task, context):
-    set_rules = FirewallRules(task, context)
-    set_rules.handle_task()
+    get_rules = FirewallRules(task, context)
+    get_rules.handle_task()
