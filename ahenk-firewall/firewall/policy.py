@@ -20,8 +20,7 @@ class FirewallRules(AbstractPlugin):
         self.rules = self.parameters['rules']
         self.temp_file_name = str(self.generate_uuid())
         self.file_path = '{0}{1}'.format(str(self.Ahenk.received_dir_path()), self.temp_file_name)
-        self.initial_rules_file_path = '/etc/ahenk/iptables.rules'
-
+        self.initial_rules_file_path = self.plugin_path + '/iptables.rules/'
         self.logger.debug('[FIREWALL] Parameters were initialized.')
 
     def handle_policy(self):

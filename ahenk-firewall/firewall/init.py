@@ -10,7 +10,7 @@ class Init(AbstractPlugin):
         self.context = context
         self.logger = self.get_logger()
 
-        self.initial_rules_file_path = '/etc/ahenk/iptables.rules'
+        self.initial_rules_file_path = self.plugin_path + '/iptables.rules/'
         self.logger.debug('[FIREWALL - init] Parameters were initialized.')
 
     def handle_mode(self):
