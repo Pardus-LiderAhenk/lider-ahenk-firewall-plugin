@@ -3,14 +3,14 @@
 # Author:Mine DOGAN <mine.dogan@agem.com.tr>
 
 from base.plugin.abstract_plugin import AbstractPlugin
-
+import os
 
 class Shutdown(AbstractPlugin):
     def __init__(self, context):
         super(Shutdown, self).__init__()
         self.context = context
         self.logger = self.get_logger()
-
+        self.plugin_path = os.path.abspath(os.path.join(os.path.dirname(__file__)))
         self.initial_rules_file_path = self.plugin_path + '/iptables.rules/'
         self.logger.debug('[FIREWALL - shutdown] Parameters were initialized.')
 

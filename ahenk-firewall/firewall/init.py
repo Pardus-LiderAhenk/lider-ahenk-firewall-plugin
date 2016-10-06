@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-
+import os
 from base.plugin.abstract_plugin import AbstractPlugin
 
 
@@ -9,7 +9,7 @@ class Init(AbstractPlugin):
         super(Init, self).__init__()
         self.context = context
         self.logger = self.get_logger()
-
+        self.plugin_path = os.path.abspath(os.path.join(os.path.dirname(__file__)))
         self.initial_rules_file_path = self.plugin_path + '/iptables.rules/'
         self.logger.debug('[FIREWALL - init] Parameters were initialized.')
 

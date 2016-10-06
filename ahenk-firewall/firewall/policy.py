@@ -3,7 +3,7 @@
 # Author:Mine DOGAN <mine.dogan@agem.com.tr>
 
 import json
-
+import os
 from base.plugin.abstract_plugin import AbstractPlugin
 
 
@@ -16,7 +16,7 @@ class FirewallRules(AbstractPlugin):
         self.message_code = self.get_message_code()
 
         self.parameters = json.loads(self.profile_data)
-
+        self.plugin_path = os.path.abspath(os.path.join(os.path.dirname(__file__)))
         self.rules = self.parameters['rules']
         self.temp_file_name = str(self.generate_uuid())
         self.file_path = '{0}{1}'.format(str(self.Ahenk.received_dir_path()), self.temp_file_name)
