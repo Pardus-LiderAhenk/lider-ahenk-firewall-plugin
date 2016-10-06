@@ -11,7 +11,7 @@ class Shutdown(AbstractPlugin):
         self.context = context
         self.logger = self.get_logger()
         self.plugin_path = os.path.abspath(os.path.join(os.path.dirname(__file__)))
-        self.initial_rules_file_path = self.plugin_path + '/iptables.rules/'
+        self.initial_rules_file_path = self.plugin_path + '/iptables.rules'
         self.logger.debug('[FIREWALL - shutdown] Parameters were initialized.')
 
     def handle_shutdown_mode(self):

@@ -20,7 +20,7 @@ class FirewallRules(AbstractPlugin):
         self.rules = self.parameters['rules']
         self.temp_file_name = str(self.generate_uuid())
         self.file_path = '{0}{1}'.format(str(self.Ahenk.received_dir_path()), self.temp_file_name)
-        self.initial_rules_file_path = self.plugin_path + '/iptables.rules/'
+        self.initial_rules_file_path = self.plugin_path + '/iptables.rules'
         self.logger.debug('[FIREWALL] Parameters were initialized.')
 
     def handle_policy(self):
@@ -33,7 +33,10 @@ class FirewallRules(AbstractPlugin):
             self.write_file(self.file_path, '{0}{1}'.format(self.rules, '\n'))
 
             self.logger.debug('[FIREWALL] Adding temp file to iptables-restore as parameter...')
-            self.execute('/sbin/iptables-restore < {}'.format(self.file_path))
+            result_code, p_out, p_err = self.execute('/sbin/iptables-restore < {}'.format(self.file_path))
+
+            if p_err != '':
+                raise Exception(p_err)
 
             self.logger.debug('[FIREWALL] Save the rules...')
             self.execute('service netfilter-persistent save')
@@ -49,7 +52,7 @@ class FirewallRules(AbstractPlugin):
             self.logger.error(
                 '[FIREWALL] A problem occured while handling Firewall policy: {0}'.format(str(e)))
             self.context.create_response(code=self.message_code.POLICY_ERROR.value,
-                                         message='Güvenlik Duvarı profili uygulanırken bir hata oluştu.')
+                                         message='Güvenlik Duvarı profili uygulanırken bir hata oluştu: ' + str(e))
 
 
 def handle_policy(profile_data, context):
