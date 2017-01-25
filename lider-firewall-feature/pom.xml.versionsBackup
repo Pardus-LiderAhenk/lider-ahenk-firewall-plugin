@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>tr.org.liderahenk</groupId>
 		<artifactId>firewall</artifactId>
-		<version>1.0.0-beta</version>
+		<version>1.0.0</version>
 	</parent>
 
 	<artifactId>lider-firewall-feature</artifactId>
