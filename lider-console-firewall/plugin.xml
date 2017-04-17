@@ -86,6 +86,12 @@
   		point="tr.org.liderahenk.liderconsole.core.policymenu">
   		<policyItem label="%command.profile" pluginName="firewall" pluginVersion="1.0.0" profileCommandId="tr.org.liderahenk.liderconsole.commands.FirewallProfile" />
   	</extension>
+	<!-- Add extension point contribution for "task execution" dialogs -->
+	<extension
+  		point="tr.org.liderahenk.liderconsole.core.taskmenu">
+  		<taskItem label="%command.task" pluginName="firewall" pluginVersion="1.0.0" 
+  		taskCommandId="tr.org.liderahenk.liderconsole.commands.FirewallTask" />
+  	</extension>
   	
 	<!-- Add extension point contribution for i18n messages -->
 	<extension
