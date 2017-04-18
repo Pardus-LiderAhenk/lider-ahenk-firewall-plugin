@@ -15,33 +15,40 @@ import tr.org.liderahenk.firewall.dialogs.FirewallProfileDialog;
 import tr.org.liderahenk.firewall.i18n.Messages;
 import tr.org.liderahenk.liderconsole.core.constants.LiderConstants;
 import tr.org.liderahenk.liderconsole.core.editorinput.ProfileEditorInput;
+import tr.org.liderahenk.liderconsole.core.handlers.LiderAbstractHandler;
 
 /**
  * Profile definition handler for firewall plugin.
  *
  */
-public class FirewallProfileHandler extends AbstractHandler {
+public class FirewallProfileHandler extends LiderAbstractHandler {
 
 	private Logger logger = LoggerFactory.getLogger(FirewallProfileHandler.class);
 
-	public Object execute(ExecutionEvent event) throws ExecutionException {
-		
-		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
-        IWorkbenchPage page = window.getActivePage();
-        
-        try {
-			// Here we open default profile editor implementation so that all
-			// profiles can be handled by Lider Console Core.
-			// We also pass our profile dialog implementation as parameter to
-			// allow the editor use it dynamically.
-			page.openEditor(new ProfileEditorInput(Messages.getString("Firewall"), FirewallConstants.PLUGIN_NAME, 
-					FirewallConstants.PLUGIN_VERSION, new FirewallProfileDialog()), 
-					LiderConstants.EDITORS.PROFILE_EDITOR);
-		} catch (PartInitException e) {
-			logger.error(e.getMessage(), e);
-		}
-
-        return null;
+//	public Object execute(ExecutionEvent event) throws ExecutionException {
+//		
+//		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
+//        IWorkbenchPage page = window.getActivePage();
+//        
+//        try {
+//			// Here we open default profile editor implementation so that all
+//			// profiles can be handled by Lider Console Core.
+//			// We also pass our profile dialog implementation as parameter to
+//			// allow the editor use it dynamically.
+//			page.openEditor(new ProfileEditorInput(Messages.getString("Firewall"), FirewallConstants.PLUGIN_NAME, 
+//					FirewallConstants.PLUGIN_VERSION, new FirewallProfileDialog()), 
+//					LiderConstants.EDITORS.PROFILE_EDITOR);
+//		} catch (PartInitException e) {
+//			logger.error(e.getMessage(), e);
+//		}
+//
+//        return null;
+//	}
+	@Override
+	public ProfileEditorInput getEditorInput() {
+		// TODO Auto-generated method stub
+		return new ProfileEditorInput(Messages.getString("Firewall"), FirewallConstants.PLUGIN_NAME, 
+				FirewallConstants.PLUGIN_VERSION, new FirewallProfileDialog());
 	}
 
 }
