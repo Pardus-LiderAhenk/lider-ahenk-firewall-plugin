@@ -90,7 +90,7 @@
 	<extension
   		point="tr.org.liderahenk.liderconsole.core.taskmenu">
   		<taskItem label="%command.task" pluginName="firewall" pluginVersion="1.0.0" 
-  		taskCommandId="tr.org.liderahenk.liderconsole.commands.FirewallTask" />
+  		taskCommandId="tr.org.liderahenk.liderconsole.commands.FirewallTask" description="Varolan güvenlik duvarı kurallarını getirmeyi sağlayan eklentidir. &#xA;Güvenlik duvarı kurallarını getirmek için tıklayınız.." />
   	</extension>
   	
 	<!-- Add extension point contribution for i18n messages -->
