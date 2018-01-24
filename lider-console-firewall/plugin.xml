@@ -84,14 +84,14 @@
 	<!-- Add extension point contribution for "policy execution" dialogs -->
 	<extension
   		point="tr.org.liderahenk.liderconsole.core.policymenu">
-  		<policyItem label="%command.profile" pluginName="firewall" pluginVersion="1.0.0" profileCommandId="tr.org.liderahenk.liderconsole.commands.FirewallProfile" />
+  		<policyItem label="%command.profile" pluginName="firewall" pluginVersion="1.1" profileCommandId="tr.org.liderahenk.liderconsole.commands.FirewallProfile" />
   	</extension>
 	<!-- Add extension point contribution for "task execution" dialogs -->
 	<extension
   		point="tr.org.liderahenk.liderconsole.core.taskmenu">
   		<taskItem label="%command.task" 
   		pluginName="firewall"
-  		 pluginVersion="1.0.0" 
+  		 pluginVersion="1.1" 
   		taskCommandId="tr.org.liderahenk.liderconsole.commands.FirewallTask" 
   		description="Varolan güvenlik duvarı kurallarını getirmeyi sağlayan eklentidir. &#xA;Güvenlik duvarı kurallarını getirmek için tıklayınız.." 
   		imagePath="firewall.png"/>

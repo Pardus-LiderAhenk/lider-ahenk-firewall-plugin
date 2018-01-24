@@ -5,7 +5,7 @@
 def info():
     inf = dict()
     inf['name'] = 'firewall'
-    inf['version'] = '1.0.0'
+    inf['version'] = '1.1'
     inf['support'] = 'debian'
     inf['description'] = 'Firewall plugin provides to get firewall rules and changing them.'
     inf['task'] = True
